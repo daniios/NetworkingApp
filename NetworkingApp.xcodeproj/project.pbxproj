@@ -13,6 +13,7 @@
 		A52721D92A40B5BB00F74E7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52721D72A40B5BB00F74E7E /* Main.storyboard */; };
 		A52721DB2A40B5BC00F74E7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52721DA2A40B5BC00F74E7E /* Assets.xcassets */; };
 		A52721DE2A40B5BC00F74E7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52721DC2A40B5BC00F74E7E /* LaunchScreen.storyboard */; };
+		A52721E72A40B69300F74E7E /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721E62A40B69300F74E7E /* Monster.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A52721DA2A40B5BC00F74E7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A52721DD2A40B5BC00F74E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A52721DF2A40B5BC00F74E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A52721E62A40B69300F74E7E /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,56 @@
 		A52721D02A40B5BB00F74E7E /* NetworkingApp */ = {
 			isa = PBXGroup;
 			children = (
-				A52721D12A40B5BB00F74E7E /* AppDelegate.swift */,
-				A52721D32A40B5BB00F74E7E /* SceneDelegate.swift */,
-				A52721D52A40B5BB00F74E7E /* ViewController.swift */,
-				A52721D72A40B5BB00F74E7E /* Main.storyboard */,
-				A52721DA2A40B5BC00F74E7E /* Assets.xcassets */,
-				A52721DC2A40B5BC00F74E7E /* LaunchScreen.storyboard */,
-				A52721DF2A40B5BC00F74E7E /* Info.plist */,
+				A52721EB2A40D04E00F74E7E /* Resources */,
+				A52721EA2A40D03700F74E7E /* Storyboards */,
+				A52721E92A40D01400F74E7E /* App */,
+				A52721E82A40D00200F74E7E /* ViewControllers */,
+				A52721E52A40B5F600F74E7E /* Models */,
 			);
 			path = NetworkingApp;
+			sourceTree = "<group>";
+		};
+		A52721E52A40B5F600F74E7E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A52721E62A40B69300F74E7E /* Monster.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A52721E82A40D00200F74E7E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A52721D52A40B5BB00F74E7E /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A52721E92A40D01400F74E7E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A52721D32A40B5BB00F74E7E /* SceneDelegate.swift */,
+				A52721D12A40B5BB00F74E7E /* AppDelegate.swift */,
+				A52721DF2A40B5BC00F74E7E /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A52721EA2A40D03700F74E7E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A52721D72A40B5BB00F74E7E /* Main.storyboard */,
+				A52721DC2A40B5BC00F74E7E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A52721EB2A40D04E00F74E7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A52721DA2A40B5BC00F74E7E /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52721E72A40B69300F74E7E /* Monster.swift in Sources */,
 				A52721D62A40B5BB00F74E7E /* ViewController.swift in Sources */,
 				A52721D22A40B5BB00F74E7E /* AppDelegate.swift in Sources */,
 				A52721D42A40B5BB00F74E7E /* SceneDelegate.swift in Sources */,
@@ -289,7 +333,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2879GZCU5N;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetworkingApp/Info.plist;
+				INFOPLIST_FILE = NetworkingApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -302,9 +346,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = CHDI.NetworkingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,7 +364,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2879GZCU5N;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetworkingApp/Info.plist;
+				INFOPLIST_FILE = NetworkingApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -330,9 +377,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = CHDI.NetworkingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
