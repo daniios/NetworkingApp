@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		A52721D22A40B5BB00F74E7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721D12A40B5BB00F74E7E /* AppDelegate.swift */; };
 		A52721D42A40B5BB00F74E7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721D32A40B5BB00F74E7E /* SceneDelegate.swift */; };
-		A52721D62A40B5BB00F74E7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721D52A40B5BB00F74E7E /* ViewController.swift */; };
+		A52721D62A40B5BB00F74E7E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721D52A40B5BB00F74E7E /* MainViewController.swift */; };
 		A52721D92A40B5BB00F74E7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52721D72A40B5BB00F74E7E /* Main.storyboard */; };
 		A52721DB2A40B5BC00F74E7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A52721DA2A40B5BC00F74E7E /* Assets.xcassets */; };
 		A52721DE2A40B5BC00F74E7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A52721DC2A40B5BC00F74E7E /* LaunchScreen.storyboard */; };
 		A52721E72A40B69300F74E7E /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721E62A40B69300F74E7E /* Monster.swift */; };
+		A52721EE2A44AD3900F74E7E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721ED2A44AD3900F74E7E /* NetworkManager.swift */; };
+		A52721F12A44B0FC00F74E7E /* MonsterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721F02A44B0FC00F74E7E /* MonsterCell.swift */; };
+		A52721F32A44B34E00F74E7E /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721F22A44B34E00F74E7E /* MonstersViewController.swift */; };
+		A52721F52A44C62D00F74E7E /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721F42A44C62D00F74E7E /* UserActionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A52721CE2A40B5BB00F74E7E /* NetworkingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52721D12A40B5BB00F74E7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A52721D32A40B5BB00F74E7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A52721D52A40B5BB00F74E7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A52721D52A40B5BB00F74E7E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A52721D82A40B5BB00F74E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A52721DA2A40B5BC00F74E7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A52721DD2A40B5BC00F74E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A52721DF2A40B5BC00F74E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52721E62A40B69300F74E7E /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		A52721ED2A44AD3900F74E7E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A52721F02A44B0FC00F74E7E /* MonsterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCell.swift; sourceTree = "<group>"; };
+		A52721F22A44B34E00F74E7E /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
+		A52721F42A44C62D00F74E7E /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,8 @@
 		A52721D02A40B5BB00F74E7E /* NetworkingApp */ = {
 			isa = PBXGroup;
 			children = (
+				A52721EF2A44B0C300F74E7E /* Views */,
+				A52721EC2A44AD1800F74E7E /* NetworkManager */,
 				A52721EB2A40D04E00F74E7E /* Resources */,
 				A52721EA2A40D03700F74E7E /* Storyboards */,
 				A52721E92A40D01400F74E7E /* App */,
@@ -78,7 +88,8 @@
 		A52721E82A40D00200F74E7E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A52721D52A40B5BB00F74E7E /* ViewController.swift */,
+				A52721D52A40B5BB00F74E7E /* MainViewController.swift */,
+				A52721F22A44B34E00F74E7E /* MonstersViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -108,6 +119,23 @@
 				A52721DA2A40B5BC00F74E7E /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A52721EC2A44AD1800F74E7E /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				A52721ED2A44AD3900F74E7E /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		A52721EF2A44B0C300F74E7E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A52721F02A44B0FC00F74E7E /* MonsterCell.swift */,
+				A52721F42A44C62D00F74E7E /* UserActionCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,10 +209,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52721F12A44B0FC00F74E7E /* MonsterCell.swift in Sources */,
 				A52721E72A40B69300F74E7E /* Monster.swift in Sources */,
-				A52721D62A40B5BB00F74E7E /* ViewController.swift in Sources */,
+				A52721D62A40B5BB00F74E7E /* MainViewController.swift in Sources */,
+				A52721EE2A44AD3900F74E7E /* NetworkManager.swift in Sources */,
+				A52721F52A44C62D00F74E7E /* UserActionCell.swift in Sources */,
 				A52721D22A40B5BB00F74E7E /* AppDelegate.swift in Sources */,
 				A52721D42A40B5BB00F74E7E /* SceneDelegate.swift in Sources */,
+				A52721F32A44B34E00F74E7E /* MonstersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
