@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Material: Codable {
+struct Material: Decodable {
     let category: String
     let commonLocations: [String]
     let cookingEffect: String
