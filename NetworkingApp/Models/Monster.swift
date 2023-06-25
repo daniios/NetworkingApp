@@ -15,16 +15,6 @@ struct Monster: Decodable {
     let id: Int
     let image: URL
     let name: String
-    
-    enum CodingKeys: String, CodingKey {
-        case category
-        case commonLocations = "common_locations"
-        case description
-        case drops
-        case id
-        case image
-        case name
-    }
 }
 
 struct MonstersResponse: Decodable {

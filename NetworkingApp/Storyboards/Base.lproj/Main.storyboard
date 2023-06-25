@@ -74,9 +74,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <activityIndicatorView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="FnE-RG-e2t">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="500" id="qMf-5M-4LY" customClass="MonsterCell" customModule="NetworkingApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="500"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="500"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qMf-5M-4LY" id="irl-9l-KCV">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="500"/>
@@ -116,6 +120,9 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Zx4-3G-Nax">
+                                            <rect key="frame" x="61.666666666666657" y="231.66666666666666" width="37" height="36.999999999999972"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="m9X-YJ-XBi" firstAttribute="top" secondItem="8oJ-lr-9Kl" secondAttribute="bottom" constant="8" id="37Q-hT-kpk"/>
@@ -123,9 +130,11 @@
                                         <constraint firstItem="IEM-a3-PV9" firstAttribute="leading" secondItem="Vg2-Y2-dU6" secondAttribute="trailing" constant="8" id="9dl-Rn-k86"/>
                                         <constraint firstItem="Vg2-Y2-dU6" firstAttribute="centerY" secondItem="irl-9l-KCV" secondAttribute="centerY" id="BvL-c1-aoc"/>
                                         <constraint firstItem="8oJ-lr-9Kl" firstAttribute="top" secondItem="IEM-a3-PV9" secondAttribute="bottom" constant="7.5" id="H1b-bo-FOx"/>
+                                        <constraint firstItem="Zx4-3G-Nax" firstAttribute="centerY" secondItem="Vg2-Y2-dU6" secondAttribute="centerY" id="RdH-1z-DUp"/>
                                         <constraint firstAttribute="trailing" secondItem="8oJ-lr-9Kl" secondAttribute="trailing" constant="15" id="TaK-mn-jUw"/>
                                         <constraint firstAttribute="trailing" secondItem="IEM-a3-PV9" secondAttribute="trailing" constant="15" id="Vbq-sh-3gK"/>
                                         <constraint firstItem="8oJ-lr-9Kl" firstAttribute="leading" secondItem="Vg2-Y2-dU6" secondAttribute="trailing" constant="8" id="dQK-vg-6kc"/>
+                                        <constraint firstItem="Zx4-3G-Nax" firstAttribute="centerX" secondItem="Vg2-Y2-dU6" secondAttribute="centerX" id="fHz-LD-ou7"/>
                                         <constraint firstItem="Vg2-Y2-dU6" firstAttribute="leading" secondItem="irl-9l-KCV" secondAttribute="leading" constant="10" id="ivK-dG-nHb"/>
                                         <constraint firstAttribute="trailing" secondItem="m9X-YJ-XBi" secondAttribute="trailing" constant="15" id="r0T-Xh-DoT"/>
                                         <constraint firstItem="IEM-a3-PV9" firstAttribute="top" secondItem="irl-9l-KCV" secondAttribute="top" id="ukq-q4-UBT"/>
@@ -136,6 +145,7 @@
                                     <outlet property="dropsLabel" destination="m9X-YJ-XBi" id="nu4-5X-WmR"/>
                                     <outlet property="monsterImage" destination="Vg2-Y2-dU6" id="7s7-md-m3G"/>
                                     <outlet property="monsterNameLabel" destination="IEM-a3-PV9" id="aMS-dq-I8s"/>
+                                    <outlet property="spinner" destination="Zx4-3G-Nax" id="PkT-9D-xow"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,6 +155,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="UAW-Gh-psS"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="FnE-RG-e2t" id="F5N-uQ-CUN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tn0-G3-guC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,12 +9,17 @@ import UIKit
 
 final class MonstersViewController: UITableViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     private var monstersResponse: MonstersResponse?
     private var monsters: [Monster] = []
+    private let networkManager = NetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 300
+        
+        setupActivityIndicator()
     }
 
     // MARK: - Table view data source
@@ -32,30 +37,30 @@ final class MonstersViewController: UITableViewController {
         
         return cell
     }
-
-
+    
+    private func setupActivityIndicator() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+    }
 }
 
 // MARK: - Networking
 extension MonstersViewController {
     func fetchMonsters() {
-        URLSession.shared.dataTask(with: Link.monstersURL.url) { [weak self] data, _, error in
-            guard let data else {
-                print(error?.localizedDescription ?? "no error description")
-                return
+        networkManager.fetch(MonstersResponse.self, from: Link.monstersURL.url) { [weak self] result in
+            switch result {
+            case .success(let monsters):
+                self?.activityIndicator.stopAnimating()
+                self?.monsters = monsters.data
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error)
             }
-            
-            do {
-                let decoder = JSONDecoder()
-                //decoder.keyDecodingStrategy = .convertFromSnakeCase
-                self?.monstersResponse = try decoder.decode(MonstersResponse.self, from: data)
-                self?.monsters = (self?.monstersResponse!.data)!
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-        }.resume()
+        }
     }
 }
