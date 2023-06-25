@@ -9,11 +9,14 @@ import UIKit
 
 enum UserAction: CaseIterable {
     case showMonsters
+    case showMaterials
     
     var title: String {
         switch self {
         case .showMonsters:
-            return "Show Monsters"
+            return "Monsters"
+        case .showMaterials:
+            return "Materials"
         }
     }
 }
@@ -45,8 +48,9 @@ final class MainViewController: UICollectionViewController {
     
     private let userActions = UserAction.allCases
     private let networkManager = NetworkManager.shared
+    private var materials: [Material] = []
 
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         userActions.count
     }
@@ -59,12 +63,13 @@ final class MainViewController: UICollectionViewController {
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
+    // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let userAction = userActions[indexPath.item]
         
         switch userAction {
         case .showMonsters: performSegue(withIdentifier: "showMonsters", sender: nil)
+        case .showMaterials: performSegue(withIdentifier: "showMaterials", sender: nil)
         }
     }
     
@@ -74,6 +79,22 @@ final class MainViewController: UICollectionViewController {
         if segue.identifier == "showMonsters" {
             guard let monstersVC = segue.destination as? MonstersViewController else { return }
             monstersVC.fetchMonsters()
+        }
+        if segue.identifier == "showMaterials" {
+            guard let materialsVC = segue.destination as? MaterialsViewController else { return }
+            materialsVC.fetchMaterials()
+        }
+    }
+    
+    private func printMaterials() {
+        networkManager.fetchMaterials(from: Link.materialsURL.url) { [weak self] result in
+            switch result {
+            case .success(let materials):
+                self?.materials = materials
+                print(self?.materials.description ?? "Problem")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }

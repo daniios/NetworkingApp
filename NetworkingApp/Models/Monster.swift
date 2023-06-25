@@ -15,6 +15,19 @@ struct Monster: Decodable {
     let id: Int
     let image: URL
     let name: String
+    
+    var formattedDrops: String {
+        if let drops = drops {
+            if drops.isEmpty {
+                return "Drop: Nothing"
+            } else {
+                let result = drops.joined(separator: ", ")
+                return "Drop: \(result)"
+            }
+        } else {
+            return "Drop: Nothing"
+        }
+    }
 }
 
 struct MonstersResponse: Decodable {

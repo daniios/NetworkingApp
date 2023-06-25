@@ -18,6 +18,10 @@
 		A52721F12A44B0FC00F74E7E /* MonsterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721F02A44B0FC00F74E7E /* MonsterCell.swift */; };
 		A52721F32A44B34E00F74E7E /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721F22A44B34E00F74E7E /* MonstersViewController.swift */; };
 		A52721F52A44C62D00F74E7E /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721F42A44C62D00F74E7E /* UserActionCell.swift */; };
+		A52721F82A48422800F74E7E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A52721F72A48422800F74E7E /* Alamofire */; };
+		A52721FA2A4842C000F74E7E /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721F92A4842C000F74E7E /* Material.swift */; };
+		A52721FC2A48622D00F74E7E /* MaterialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721FB2A48622D00F74E7E /* MaterialCell.swift */; };
+		A52721FE2A48633000F74E7E /* MaterialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52721FD2A48633000F74E7E /* MaterialsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,9 @@
 		A52721F02A44B0FC00F74E7E /* MonsterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCell.swift; sourceTree = "<group>"; };
 		A52721F22A44B34E00F74E7E /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
 		A52721F42A44C62D00F74E7E /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
+		A52721F92A4842C000F74E7E /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		A52721FB2A48622D00F74E7E /* MaterialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialCell.swift; sourceTree = "<group>"; };
+		A52721FD2A48633000F74E7E /* MaterialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52721F82A48422800F74E7E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				A52721E62A40B69300F74E7E /* Monster.swift */,
+				A52721F92A4842C000F74E7E /* Material.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -90,6 +99,7 @@
 			children = (
 				A52721D52A40B5BB00F74E7E /* MainViewController.swift */,
 				A52721F22A44B34E00F74E7E /* MonstersViewController.swift */,
+				A52721FD2A48633000F74E7E /* MaterialsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -134,6 +144,7 @@
 			children = (
 				A52721F02A44B0FC00F74E7E /* MonsterCell.swift */,
 				A52721F42A44C62D00F74E7E /* UserActionCell.swift */,
+				A52721FB2A48622D00F74E7E /* MaterialCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +165,9 @@
 			dependencies = (
 			);
 			name = NetworkingApp;
+			packageProductDependencies = (
+				A52721F72A48422800F74E7E /* Alamofire */,
+			);
 			productName = NetworkingApp;
 			productReference = A52721CE2A40B5BB00F74E7E /* NetworkingApp.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +196,9 @@
 				Base,
 			);
 			mainGroup = A52721C52A40B5BB00F74E7E;
+			packageReferences = (
+				A52721F62A48422800F74E7E /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = A52721CF2A40B5BB00F74E7E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -210,10 +227,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A52721F12A44B0FC00F74E7E /* MonsterCell.swift in Sources */,
+				A52721FE2A48633000F74E7E /* MaterialsViewController.swift in Sources */,
+				A52721FA2A4842C000F74E7E /* Material.swift in Sources */,
 				A52721E72A40B69300F74E7E /* Monster.swift in Sources */,
 				A52721D62A40B5BB00F74E7E /* MainViewController.swift in Sources */,
 				A52721EE2A44AD3900F74E7E /* NetworkManager.swift in Sources */,
 				A52721F52A44C62D00F74E7E /* UserActionCell.swift in Sources */,
+				A52721FC2A48622D00F74E7E /* MaterialCell.swift in Sources */,
 				A52721D22A40B5BB00F74E7E /* AppDelegate.swift in Sources */,
 				A52721D42A40B5BB00F74E7E /* SceneDelegate.swift in Sources */,
 				A52721F32A44B34E00F74E7E /* MonstersViewController.swift in Sources */,
@@ -440,6 +460,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A52721F62A48422800F74E7E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A52721F72A48422800F74E7E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A52721F62A48422800F74E7E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A52721C62A40B5BB00F74E7E /* Project object */;
 }

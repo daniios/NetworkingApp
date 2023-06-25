@@ -6,14 +6,18 @@
 //
 
 import Foundation
+import Alamofire
 
 enum Link {
     case monstersURL
+    case materialsURL
     
     var url: URL {
         switch self {
         case .monstersURL:
             return URL(string: "https://botw-compendium.herokuapp.com/api/v2/category/monsters")!
+        case .materialsURL:
+            return URL(string: "https://botw-compendium.herokuapp.com/api/v2/category/materials")!
         }
     }
 }
@@ -29,6 +33,7 @@ final class NetworkManager {
     
     private init () {}
     
+    // MARK: - URLSession methods for work with Monster data
     func fetchImage(from url: URL, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         
         DispatchQueue.global().async {
@@ -63,5 +68,39 @@ final class NetworkManager {
             }
             
         }.resume()
+    }
+    
+    // MARK: - Alamofire methods for work with Material data
+    func fetchMaterials(from url: URL, completion: @escaping (Result<[Material], AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    if let json = value as? [String: Any],
+                       let dataArray = json["data"] as? [[String: Any]] {
+                        let materials = Material.getMaterials(from: dataArray)
+                        completion(.success(materials))
+                    } else {
+                        completion(.success([]))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+
+    
+    func fetchData(from url: String, completion: @escaping(Result<Data, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseData { dataResponse in
+                switch dataResponse.result {
+                case .success(let imageData):
+                    completion(.success(imageData))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
     }
 }

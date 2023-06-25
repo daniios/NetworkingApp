@@ -2,18 +2,17 @@
 //  MonstersViewController.swift
 //  NetworkingApp
 //
-//  Created by Даниил Чупин on 22.06.2023.
+//  Created by Даниил Чупин on 25.06.2023.
 //
 
 import UIKit
 
-final class MonstersViewController: UITableViewController {
+final class MaterialsViewController: UITableViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Private properties
-    private var monstersResponse: MonstersResponse?
-    private var monsters: [Monster] = []
+    private var materials: [Material] = []
     private let networkManager = NetworkManager.shared
     
     override func viewDidLoad() {
@@ -25,16 +24,16 @@ final class MonstersViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        monsters.count
+        materials.count
     }
 
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        guard let cell = cell as? MonsterCell else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "materialCell", for: indexPath)
+        guard let cell = cell as? MaterialCell else { return UITableViewCell() }
         
-        let monster = monsters[indexPath.row]
-        cell.configure(with: monster)
+        let material = materials[indexPath.row]
+        cell.configure(with: material)
         
         return cell
     }
@@ -52,16 +51,16 @@ final class MonstersViewController: UITableViewController {
 }
 
 // MARK: - Networking
-extension MonstersViewController {
-    func fetchMonsters() {
-        networkManager.fetch(MonstersResponse.self, from: Link.monstersURL.url) { [weak self] result in
+extension MaterialsViewController {
+    func fetchMaterials() {
+        networkManager.fetchMaterials(from: Link.materialsURL.url) { [weak self] result in
             switch result {
-            case .success(let monsters):
+            case .success(let materials):
                 self?.activityIndicator.stopAnimating()
-                self?.monsters = monsters.data
+                self?.materials = materials
                 self?.tableView.reloadData()
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }

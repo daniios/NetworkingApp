@@ -7,30 +7,27 @@
 
 import UIKit
 
-class MonsterCell: UITableViewCell {
+final class MonsterCell: UITableViewCell {
 
-    @IBOutlet var monsterImage: UIImageView!
-    @IBOutlet var monsterNameLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var dropsLabel: UILabel!
+    // MARK: IBOutlets
+    @IBOutlet weak var monsterImage: UIImageView! {
+        didSet {
+            monsterImage.clipsToBounds = true
+            monsterImage.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet weak var monsterNameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dropsLabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private let networkManager = NetworkManager.shared
     
+    // MARK: - Public methods
     func configure(with monster: Monster) {
         monsterNameLabel.text = monster.name
         descriptionLabel.text = "Info: \(monster.description)"
-        
-        if let drops = monster.drops {
-            if drops.count == 0 {
-                dropsLabel.text = "Drop: Nothing"
-            } else {
-                let result = drops.joined(separator: ", ")
-                dropsLabel.text = "Drop: \(result)"
-            }
-        } else {
-            dropsLabel.text = "Drop: Nothing"
-        }
+        dropsLabel.text = monster.formattedDrops
         
         monsterImage.image = nil
         spinner.hidesWhenStopped = true
